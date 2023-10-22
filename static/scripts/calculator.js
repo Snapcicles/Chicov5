@@ -23,6 +23,20 @@ document.addEventListener('DOMContentLoaded', () => {
       error: false
     },
     {
+      name: "Gladihoppers",
+      link: "https://bonbang.github.io/store99/gladihoppers/index.html",
+      image: "/images/icons/gladihoppers.jpg",
+      categories: ["all"],
+      error: false
+    },
+    {
+      name: "ev.io",
+      link: "https://ev.io",
+      image: "/images/icons/evio.jpg",
+      categories: ["all", "2P"],
+      error: false
+    },
+    {
       name: "Brain Test 2",
       link: "https://games.poki.com/458768/df221093-aae9-4c0d-b458-efb16ae8e3ab",
       image: "/images/icons/braintest.png",
@@ -48,14 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
       link: "https://territorial.io",
       image: "/images/icons/territorialio.ico",
       categories: ['all', '2P'],
-      error: false
     },
     {
       name: "Stickman Hook",
-      link: "https://interstellarnetwork.github.io/Interstellar-Assets/stickman-hook/index.html",
+      link: "/edu/stickman-hook/index.html",
       image: "/images/icons/stickmanhook.jpg",
-      categories: ['all'],
-      error: false
+      categories: ['all', 'local'],
+      local: "true"
     },
     {
       name: "Tunnel Rush",
@@ -149,11 +162,11 @@ document.addEventListener('DOMContentLoaded', () => {
       error: false
     },
     {
-      name: "Jetpack Joyride (3kh0)",
-      link: "https://interstellarnetwork.github.io/Interstellar-Assets/jetpack-joyride/index.html",
+      name: "Jetpack Joyride",
+      link: "/edu/jetpack-joyride/index.html",
       image: "/images/icons/jetpackjoyride.png",
-      categories: ['all'],
-      error: false
+      categories: ['all', 'local'],
+      local: "true"
     },
     {
       name: "FeedVid",
@@ -226,10 +239,24 @@ document.addEventListener('DOMContentLoaded', () => {
       error: false
     },
     {
-      name: "Eaglercraft 1.5.2",
-      link: "https://webclient.asspixel.net/versions/Eagler152/",
-      image: "/images/icons/mc.webp",
+      name: "Papa's Scooperia",
+      link: "https://files.crazygames.com/ruffle/papasscooperia.html",
+      image: "/images/icons/papasscooperia.jpg",
       categories: ['all'],
+      error: false
+    },
+    {
+      name: "Papa's Sushiria",
+      link: "https://files.crazygames.com/ruffle/papassushiria.html",
+      image: "/images/icons/papassushiria.webp",
+      categories: ['all'],
+      error: false
+    },
+    {
+      name: "Eaglercraft 1.5.2",
+      link: "https://interstellar-assets.pages.dev/minecraft-15/",
+      image: "/images/icons/mc.webp",
+      categories: ['all', '2P'],
       error: false
     },
     {
@@ -646,7 +673,7 @@ document.addEventListener('DOMContentLoaded', () => {
       error: false
     },
     {
-      name: "Chess.com (Fixed)",
+      name: "Chess.com",
       link: "https://chess.com",
       image: "/images/icons/chess.webp",
       categories: ["all"],
@@ -654,10 +681,10 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       name: "Cluster Rush",
-      link: "https://interstellarnetwork.github.io/Interstellar-Assets/Cluster-Rush/",
+      link: "/edu/Cluster-Rush/index.html",
       image: "/images/icons/cluster-rush.webp",
-      categories: ["all"],
-      error: false
+      categories: ["all", 'local'],
+      local: "true"
     },
     {
       name: "Cookie Clicker",
@@ -884,6 +911,13 @@ document.addEventListener('DOMContentLoaded', () => {
         error: false
       },
       {
+        name: "NGU Idle",
+        link: "https://cache.armorgames.com/files/games/ngu-idle-18444/index.html?v=1559319416",
+        image: "/images/icons/nguidle.jpg",
+        categories: ["all"],
+        error: false
+      },
+      {
         name: "Jacksmith",
         link: "https://www.coolmathgames.com/0-jacksmith/play",
         image: "/images/icons/jacksmith.webp",
@@ -933,11 +967,11 @@ document.addEventListener('DOMContentLoaded', () => {
         error: false
       },  
       {
-        name: "Monkey Mart [Fixed]",
-        link: "https://interstellarnetwork.github.io/Interstellar-Assets/monkey-mart/",
+        name: "Monkey Mart",
+        link: "/edu/monkey-mart/index.html",
         image: "/images/icons/mm.webp",
-        categories: ['all'],
-        error: false
+        categories: ['all', 'local'],
+        local: "true"
       },
       {
         name: "MooMoo.io",
@@ -1185,7 +1219,7 @@ document.addEventListener('DOMContentLoaded', () => {
     error: false
   },
   {
-    name: "Riddle School 2 [FIXED]",
+    name: "Riddle School 2",
     link: "https://f.silvergames.com/ruffle/player.php?id=8564",
     image: "/images/icons/rs1.webp",
     categories: ['all'],
@@ -1396,12 +1430,16 @@ document.addEventListener('DOMContentLoaded', () => {
     },
     {
       name: "Retro Bowl",
-      link: "/calendar/retro-bowl/index.html",
+      link: "/edu/retro/index.html",
       image: "/images/icons/retro.webp",
-      categories: ["all,", 'sports'],
+      categories: ["all,", 'sports', 'local'],
       local: "true",
       },
   ];
+  
+  function saveToLocal(path) {
+    localStorage.setItem("savedPaths", path);
+  }
   
   appsList.sort((a, b) => a.name.localeCompare(b.name));
   
@@ -1444,7 +1482,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (typeof app.say !== 'undefined') {
           alert(app.say);
         }
-        window.location.href = app.link;
+        saveToLocal(app.link);
+        window.location.href = '/edu.html';
         return false;
       };
     } else if (app.blank) {

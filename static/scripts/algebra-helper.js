@@ -15,9 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
       error: false
     },
     {
-      name: "freemovieswatch.tv",
-      link: "https://freemovieswatch.tv",
-      image: "/images/icons/freemovieswatch.png",
+      name: "Movie Web",
+      link: "https://movie-web.app",
+      image: "https://movie-web.app/apple-touch-icon.png",
       categories: ["all", "media", "stream"],
       error: false
     },
@@ -245,6 +245,13 @@ document.addEventListener('DOMContentLoaded', () => {
       image: "/images/icons/discord.jpg",
       categories: ["all", "social"],
       blank: "true",
+      error: false
+    },
+    {
+      name: "HD Today",
+      link: "https://hdtoday.tv",
+      image: "/images/icons/hd.png",
+      categories: ["all", "media", "stream"],
       error: false
     },
   ];
